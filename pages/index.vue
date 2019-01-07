@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo'
+import QrcodeReader from '~/components/QrcodeReader'
 
 export default {
   components: {
-    Logo
+    QrcodeReader
   }
 }
 </script>

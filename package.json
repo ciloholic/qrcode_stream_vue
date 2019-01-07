@@ -8,9 +8,12 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
     "generate": "nuxt generate",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
@@ -29,6 +32,7 @@
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "^4.0.0",
     "nodemon": "^1.11.0",
-    "prettier": "1.14.3"
+    "prettier": "1.14.3",
+    "push-dir": "^0.4.1"
   }
 }

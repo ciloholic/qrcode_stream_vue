@@ -1,5 +1,15 @@
 const pkg = require('./package')
 
+// `DEPLOY_ENV` が `GH_PAGES` の場合のみ `router.base = '/<repository-name>/'` を追加する
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/qrcode_stream_vue/'
+        }
+      }
+    : {}
+
 module.exports = {
   mode: 'spa',
   head: {
@@ -14,13 +24,11 @@ module.exports = {
   loading: { color: '#fff' },
   css: ['element-ui/lib/theme-chalk/index.css'],
   plugins: ['@/plugins/element-ui'],
-  modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
-  ],
+  modules: ['@nuxtjs/axios'],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+  ...routerBase,
   build: {
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {

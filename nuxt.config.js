@@ -1,5 +1,4 @@
 const pkg = require('./package')
-
 const ghPagesOnly =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
@@ -26,11 +25,8 @@ module.exports = {
     { src: '@/plugins/element-ui' },
     { src: '@/plugins/vue-qrcode-reader', ssr: false }
   ],
-  modules: ['@nuxtjs/axios', 'nuxt-basic-auth-module'],
-  basic: {
-    name: 'admin',
-    pass: 'asdf1234'
-  },
+  modules: ['@nuxtjs/axios'],
+  serverMiddleware: ['~/middleware/basic-auth'],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },

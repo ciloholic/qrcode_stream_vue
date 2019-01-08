@@ -11,7 +11,7 @@ const routerBase =
     : {}
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
   head: {
     title: pkg.name,
     meta: [
@@ -23,7 +23,10 @@ module.exports = {
   },
   loading: { color: '#fff' },
   css: ['element-ui/lib/theme-chalk/index.css'],
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    { src: '@/plugins/element-ui' },
+    { src: '@/plugins/vue-qrcode-reader', ssr: false }
+  ],
   modules: ['@nuxtjs/axios'],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options

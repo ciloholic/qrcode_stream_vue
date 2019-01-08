@@ -1,15 +1,15 @@
 <template>
   <section class="container">
-    <logo/>
+    <no-ssr>
+      <qrcode-reader/>
+    </no-ssr>
   </section>
 </template>
 
 <script>
-import QrcodeReader from '~/components/QrcodeReader'
-
 export default {
-  components: {
-    QrcodeReader
+  beforeCreate() {
+    this.QrcodeReader = () => import('~/components/QrcodeReader')
   }
 }
 </script>

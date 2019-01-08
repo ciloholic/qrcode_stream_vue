@@ -5335,6 +5335,13 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
+nuxt-basic-auth-module@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/nuxt-basic-auth-module/-/nuxt-basic-auth-module-1.0.4.tgz#622d6e58c9c7208916817807a2aa9117e89be448"
+  integrity sha512-7B3rYvKPWTyBM0YfxJMipkmsBj5tjkgZ6Hw4oOv5nTWWFbbnDHO7BbMSQqRQo5uOdBnRQnz1D89M/0z6d8xuhA==
+  dependencies:
+    basic-auth "^2.0.1"
+
 nuxt@^2.0.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.3.4.tgz#61f5fe856ebbeced89f04a3734baa4ee91cc3cfa"

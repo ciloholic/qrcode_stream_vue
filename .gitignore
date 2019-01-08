@@ -2,6 +2,7 @@
 /dist
 /.nuxt
 /asset/*
+/middleware/*
 /store/*
 !.keep
 .env

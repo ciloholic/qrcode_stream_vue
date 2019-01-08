@@ -43,7 +43,8 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    publicPath: '/qrcode_stream_vue/_nuxt/',
   },
   ...ghPagesOnly
 }

@@ -1,5 +1,4 @@
 const pkg = require('./package')
-
 const ghPagesOnly =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
@@ -10,7 +9,7 @@ const ghPagesOnly =
     : {}
 
 module.exports = {
-  mode: 'universal',
+  mode: 'spa',
   head: {
     title: pkg.name,
     meta: [

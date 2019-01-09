@@ -13,17 +13,13 @@ module.exports = {
   },
   loading: { color: '#fff' },
   css: ['element-ui/lib/theme-chalk/index.css'],
-  plugins: [
-    { src: '@/plugins/element-ui' },
-    { src: '@/plugins/vue-qrcode-reader', ssr: false }
-  ],
-  modules: ['@nuxtjs/axios', 'nuxt-basic-auth-module'],
-  basic: {
-    name: 'admin',
-    pass: 'asdf1234'
-  },
+  plugins: ['@/plugins/element-ui', '@/plugins/vue-qrcode-reader'],
+  modules: ['@nuxtjs/axios'],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+  generate: {
+    dir: 'functions/dist'
   },
   build: {
     extend(config, ctx) {

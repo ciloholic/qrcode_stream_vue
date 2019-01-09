@@ -1,6 +1,8 @@
 /node_modules
-/dist
+/functions/dist
+/functions/node_modules
 /.nuxt
+/.firebase
 /asset/*
 /middleware/*
 /store/*

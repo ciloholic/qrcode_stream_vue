@@ -1,12 +1,4 @@
 const pkg = require('./package')
-const ghPagesOnly =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/qrcode_stream_vue/'
-        }
-      }
-    : {}
 
 module.exports = {
   mode: 'spa',
@@ -43,8 +35,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    publicPath: '/qrcode_stream_vue/_nuxt/',
-  },
-  ...ghPagesOnly
+    }
+  }
 }

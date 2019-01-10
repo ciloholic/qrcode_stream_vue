@@ -10,7 +10,9 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "package-functions": "cd functions && yarn",
+    "deploy": "yarn run package-functions && yarn run lint && firebase deploy",
+    "precommit": "yarn run lint"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",

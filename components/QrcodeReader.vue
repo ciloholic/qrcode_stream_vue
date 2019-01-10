@@ -1,27 +1,27 @@
 <template>
   <div>
     <p class="error">{{ error }}</p>
-    <p class="decode-result"><b>{{ result }}</b></p>
-    <qrcode-reader @decode="onDecode"/>
+    <qrcode-reader
+      :paused="paused"
+      @init="onInit"
+      @decode="onDecode"/>
+    <p class="decode-result">{{ result }}</p>
   </div>
 </template>
 
 <script>
-import { QrcodeReader } from 'vue-qrcode-reader'
-
 export default {
-  components: {
-    QrcodeReader
-  },
   data() {
     return {
+      paused: false,
       result: '',
       error: ''
     }
   },
   methods: {
-    onDecode(result) {
-      this.result = result
+    onDecode(content) {
+      this.paused = true
+      this.result = content
     },
     async onInit(promise) {
       try {

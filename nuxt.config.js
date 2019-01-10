@@ -12,11 +12,14 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   loading: { color: '#fff' },
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: [
+    'bootstrap/dist/css/bootstrap-reboot.min.css',
+    'element-ui/lib/theme-chalk/index.css'
+  ],
   plugins: ['@/plugins/element-ui', '@/plugins/vue-qrcode-reader'],
   modules: ['@nuxtjs/axios'],
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://localhost:8888'
   },
   generate: {
     dir: 'functions/dist'

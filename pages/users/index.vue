@@ -5,16 +5,22 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
+import { mapGetters, mapActions } from 'vuex'
 import QrcodeReader from '~/components/QrcodeReader'
 
 export default {
   components: {
     QrcodeReader
   },
-  async asyncData({}) {
-    let { data } = await axios.get('/')
-    return { data }
+  computed: {
+    ...mapGetters(['getRecords'])
+  },
+  created() {
+    // this.$store.getters.getRecords
+    this.fetchRecords()
+  },
+  methods: {
+    ...mapActions(['fetchRecords'])
   }
 }
 </script>

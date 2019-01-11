@@ -5,6 +5,5 @@
 /.firebase
 /asset/*
 /middleware/*
-/store/*
 !.keep
 .env

@@ -17,9 +17,9 @@ module.exports = {
     'element-ui/lib/theme-chalk/index.css'
   ],
   plugins: ['@/plugins/element-ui', '@/plugins/vue-qrcode-reader'],
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/dotenv'],
   axios: {
-    baseURL: 'http://localhost:8888'
+    // baseURL: process.env.API_URL || 'http://localhost:3000'
   },
   generate: {
     dir: 'functions/dist'

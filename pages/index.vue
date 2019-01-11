@@ -1,26 +1,12 @@
 <template>
-  <section class="container">
-    <qrcode-reader/>
-  </section>
+  <div>
+    <p>トップページ</p>
+  </div>
 </template>
 
 <script>
-import QrcodeReader from '~/components/QrcodeReader'
-
-export default {
-  components: {
-    QrcodeReader
-  }
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
-.container {
-  min-height: 100vmin;
-  min-width: 100vmin;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 </style>

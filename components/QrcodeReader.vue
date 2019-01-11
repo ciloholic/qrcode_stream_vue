@@ -6,6 +6,7 @@
       @init="onInit"
       @decode="onDecode"/>
     <p class="decode-result">{{ result }}</p>
+    <el-button :disabled="disableButton()">OK</el-button>
   </div>
 </template>
 
@@ -19,6 +20,9 @@ export default {
     }
   },
   methods: {
+    disableButton() {
+      return !this.result.length > 0
+    },
     onDecode(content) {
       this.paused = true
       this.result = content
@@ -50,5 +54,12 @@ export default {
 .error {
   font-weight: bold;
   color: red;
+}
+</style>
+
+<style lang="scss">
+.qrcode-reader__camera,
+.qrcode-reader__pause-frame {
+  transform: scale(-1, 1);
 }
 </style>

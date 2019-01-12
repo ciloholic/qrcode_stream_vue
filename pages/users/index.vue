@@ -1,26 +1,37 @@
 <template>
   <div>
-    <qrcode-reader/>
+    <self-qrcode-reader :pause="isUserQr"/>
+    <p v-if="isUserQr">{{ getUserQr }}</p>
+    <p v-if="isUserQr">{{ searchUserQr }}</p>
+    <el-button @click="reload()">再撮影</el-button>
+    <el-button 
+      :disabled="!(isUserQr && searchUserQr)" 
+      @click="$router.push({ name: 'users-userQr', params: { userQr: getUserQr }})">登録</el-button>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import QrcodeReader from '~/components/QrcodeReader'
+import SelfQrcodeReader from '~/components/QrcodeReader'
 
 export default {
   components: {
-    QrcodeReader
+    SelfQrcodeReader
   },
   computed: {
-    ...mapGetters(['getRecords'])
+    ...mapGetters(['getUserQr', 'isUserQr', 'searchUserQr'])
   },
   created() {
-    // this.$store.getters.getRecords
     this.fetchRecords()
   },
+  destroyed() {
+    console.log('destroyed')
+  },
   methods: {
-    ...mapActions(['fetchRecords'])
+    ...mapActions(['fetchRecords']),
+    reload() {
+      location.reload(true)
+    }
   }
 }
 </script>

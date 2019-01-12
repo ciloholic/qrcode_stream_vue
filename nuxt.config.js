@@ -18,9 +18,6 @@ module.exports = {
   ],
   plugins: ['@/plugins/element-ui', '@/plugins/vue-qrcode-reader'],
   modules: ['@nuxtjs/axios', '@nuxtjs/dotenv'],
-  axios: {
-    // baseURL: process.env.API_URL || 'http://localhost:3000'
-  },
   generate: {
     dir: 'functions/dist'
   },

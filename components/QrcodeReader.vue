@@ -2,30 +2,36 @@
   <div>
     <p class="error">{{ error }}</p>
     <qrcode-reader
-      :paused="paused"
+      :paused="pause"
       @init="onInit"
       @decode="onDecode"/>
-    <p class="decode-result">{{ result }}</p>
-    <el-button :disabled="disableButton()">OK</el-button>
   </div>
 </template>
 
 <script>
+import { QrcodeReader } from 'vue-qrcode-reader'
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
+  components: { QrcodeReader },
+  props: {
+    pause: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
-      paused: false,
-      result: '',
       error: ''
     }
   },
+  computed: {
+    ...mapGetters(['getUserQr'])
+  },
   methods: {
-    disableButton() {
-      return !this.result.length > 0
-    },
+    ...mapActions(['setUserQr']),
     onDecode(content) {
-      this.paused = true
-      this.result = content
+      this.setUserQr(content)
     },
     async onInit(promise) {
       try {

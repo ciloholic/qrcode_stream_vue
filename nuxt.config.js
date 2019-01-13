@@ -16,7 +16,7 @@ module.exports = {
     'bootstrap/dist/css/bootstrap-reboot.min.css',
     'element-ui/lib/theme-chalk/index.css'
   ],
-  plugins: ['@/plugins/element-ui', '@/plugins/vue-qrcode-reader'],
+  plugins: ['@/plugins/element-ui'],
   modules: ['@nuxtjs/axios', '@nuxtjs/dotenv'],
   generate: {
     dir: 'functions/dist'
@@ -30,6 +30,9 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+        config.node = {
+          fs: 'empty'
+        }
       }
     }
   }

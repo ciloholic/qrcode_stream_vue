@@ -1,27 +1,26 @@
 <template>
   <div>
-    <self2-qrcode-reader :pause="isUserQr"/>
-    <p>UserQr</p>
+    <qrcode-reader set-column-name="setAvailableQr"/>
+    <p v-if="isAvailableQr">{{ getAvailableQr }}</p>
+    <p v-if="isAvailableQr">{{ searchUserQr }}</p>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Self2QrcodeReader from '~/components/QrcodeReader'
+import QrcodeReader from '~/components/QrcodeReader'
 
 export default {
   components: {
-    Self2QrcodeReader
+    QrcodeReader
   },
   validate({ params }) {
     return /^T\d+$/.test(params.userQr)
   },
   computed: {
-    ...mapGetters(['getUserQr', 'isUserQr', 'searchUserQr'])
+    ...mapGetters(['getAvailableQr', 'isAvailableQr', 'searchUserQr'])
   },
-  methods: {
-    ...mapActions(['resetQr'])
-  }
+  methods: {}
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <self-qrcode-reader :pause="isUserQr"/>
+    <qrcode-reader set-column-name="setUserQr"/>
     <p v-if="isUserQr">{{ getUserQr }}</p>
     <p v-if="isUserQr">{{ searchUserQr }}</p>
     <el-button @click="reload()">再撮影</el-button>
@@ -12,20 +12,17 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import SelfQrcodeReader from '~/components/QrcodeReader'
+import QrcodeReader from '~/components/QrcodeReader'
 
 export default {
   components: {
-    SelfQrcodeReader
+    QrcodeReader
   },
   computed: {
     ...mapGetters(['getUserQr', 'isUserQr', 'searchUserQr'])
   },
   created() {
     this.fetchRecords()
-  },
-  destroyed() {
-    console.log('destroyed')
   },
   methods: {
     ...mapActions(['fetchRecords']),

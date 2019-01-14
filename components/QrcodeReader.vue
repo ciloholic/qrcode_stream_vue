@@ -88,11 +88,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.error {
-  font-weight: bold;
-  color: red;
-}
-
 .video {
   transform: scale(-1, 1);
 }

@@ -25,14 +25,15 @@ export default {
   },
   methods: {
     post() {
-      let data = new URLSearchParams()
-      data.append('user_qr', this.getUserQr)
-      data.append('text', 'HITHIT')
-      // const headers = {
-      //   'Content-Type': 'text/plain;charset=utf-8'
-      // }
+      const data = JSON.stringify({
+        user_qr: this.getUserQr,
+        text: 'HITHIT'
+      })
+      const headers = {
+        'Content-Type': 'application/json'
+      }
       axios
-        .post(process.env.API_URL, data)
+        .post(process.env.API_URL, data, { headers: headers })
         .then(res => {
           console.log(res.status)
           console.log(res.data)

@@ -59,11 +59,7 @@ export default {
       // web camera
       const media = navigator.mediaDevices.getUserMedia({
         audio: false,
-        video: {
-          width: this.width,
-          height: this.height,
-          frameRate: { ideal: 5, max: 15 }
-        }
+        video: true
       })
       media.then(mediaStream => (video.srcObject = mediaStream))
       // qrcode canvas
